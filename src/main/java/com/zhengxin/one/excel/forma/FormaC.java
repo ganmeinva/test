@@ -32,6 +32,11 @@ public class FormaC {
     @Autowired
     public FormaCService formaCService;
 
+    @GetMapping
+    public  String test(){
+        return "haha";
+    }
+
     //填充数据生成sheet1
     private List<BackInfoDTO> data1() {
         List<BackInfoDTO> list = new ArrayList<>();
