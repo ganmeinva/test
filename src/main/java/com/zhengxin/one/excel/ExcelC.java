@@ -36,6 +36,11 @@ public class ExcelC {
         return list;
     }
 
+    @GetMapping("test")
+    public  String test(){
+        return "haha";
+    }
+
     //根据模板写
     @RequestMapping(value = "a",method = RequestMethod.GET)
     public void insertBase(HttpServletResponse response)throws IOException{
