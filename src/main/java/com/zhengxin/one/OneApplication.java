@@ -1,6 +1,7 @@
 package com.zhengxin.one;
 
 import com.zhengxin.one.annotaion.GanScan;
+import com.zhengxin.one.config.EntityInterceptor;
 import com.zhengxin.one.service.OrderService;
 import com.zhengxin.one.service.UserService;
 import org.apache.ibatis.io.Resources;
@@ -20,18 +21,24 @@ import java.io.InputStream;
 @GanScan("com.zhengxin.one.mapper")
 public class OneApplication {
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         AnnotationConfigApplicationContext aop = new AnnotationConfigApplicationContext(OneApplication.class);
         OrderService orderService = (OrderService) aop.getBean("orderService");
         UserService userService = (UserService) aop.getBean("userService");
         orderService.getUser();
-        userService.getOrder();
+        userService.update();
     }
+//    public static void main(String[] args) {
+//        SpringApplication.run(OneApplication.class, args);
+//    }
 
     @Bean
     SqlSessionFactory getSqlSessionFactory() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream("mybatis.xml");
         SqlSessionFactory build = new SqlSessionFactoryBuilder().build(inputStream);
+        // 增加自定义拦截器
+        EntityInterceptor interceptor=new EntityInterceptor();
+        build.getConfiguration().addInterceptor(interceptor);
         return build;
     }
 

@@ -1,5 +1,6 @@
 package com.zhengxin.one.service;
 
+import com.zhengxin.one.esStudy.People;
 import com.zhengxin.one.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class UserService {
     OrderService orderService;
     @Autowired
     OrderMapper orderMapper;
-    public   void  getOrder(){
-        System.out.println(orderMapper.getOrder());
+    public   void update(){
+        System.out.println(orderMapper.updateOrder(new People("haha",2,16)));
     }
 }
