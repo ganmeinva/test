@@ -1,15 +1,12 @@
 package com.zhengxin.one.annotaion;
 
 import com.zhengxin.one.config.GanFactoryBean;
-import com.zhengxin.one.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
-import org.springframework.core.type.classreading.MetadataReader;
 
-import java.io.IOException;
 import java.util.Set;
 
 /**

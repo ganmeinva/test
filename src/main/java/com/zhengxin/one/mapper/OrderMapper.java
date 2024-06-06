@@ -1,6 +1,7 @@
 package com.zhengxin.one.mapper;
 
-import org.apache.ibatis.annotations.Select;
+import com.zhengxin.one.esStudy.People;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * 1. @ClassName OrderMapper
@@ -11,6 +12,6 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface OrderMapper {
 
-    @Select("select 'order'")
-    String getOrder();
+    @Update("update people  ")
+    String updateOrder(People haha);
 }
